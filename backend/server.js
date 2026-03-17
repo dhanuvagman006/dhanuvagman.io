@@ -1,13 +1,14 @@
 import express from 'express';
 const app = express();
 const PORT = 3000;
-
+var count=0;
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
 app.get('/ping',(req,res)=>{
-    res.send("Active")
+    count=count+1
+    res.send(count)
 })
 
 app.listen(PORT, () => {
