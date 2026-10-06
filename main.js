@@ -54,9 +54,6 @@
   let scrollY = 0;
   const draw = () => {
     ctx.clearRect(0, 0, W, H);
-    const g = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 500 * DPR);
-    g.addColorStop(0, "rgba(124,92,255,0.10)"); g.addColorStop(1, "rgba(124,92,255,0)");
-    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
     const link = 130 * DPR;
     for (const p of pts) {
       const dx = p.x - mouse.x, dy = p.y - mouse.y, d = Math.hypot(dx, dy);
@@ -70,7 +67,7 @@
       const a = pts[i];
       for (let j = i + 1; j < pts.length; j++) {
         const b = pts[j], d = Math.hypot(a.x - b.x, a.y - b.y);
-        if (d < link) { ctx.strokeStyle = `rgba(200,255,77,${(1 - d / link) * 0.18})`; ctx.lineWidth = DPR * 0.6; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+        if (d < link) { ctx.strokeStyle = `rgba(230, 199, 156,${(1 - d / link) * 0.18})`; ctx.lineWidth = DPR * 0.6; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
       }
       ctx.fillStyle = "rgba(242,240,234,0.55)"; ctx.beginPath(); ctx.arc(a.x, a.y, 1.2 * DPR, 0, 7); ctx.fill();
     }
@@ -123,6 +120,66 @@
     })
   );
 
+  /* ---------- hero: rotating role, terminal typing, tilt ---------- */
+  (() => {
+    const rot = $("#rotator");
+    const words = ["AI agents", "Android apps", "Flutter apps", "FastAPI backends", "vision systems", "intelligent products"];
+    const glyphs = "!<>-_/[]{}=+*^?#01";
+    let wi = 0;
+    const scramble = (to) => {
+      const from = rot.textContent, len = Math.max(from.length, to.length);
+      let f = 0;
+      const step = () => {
+        let out = "";
+        for (let i = 0; i < len; i++) {
+          if (f > i * 2 + 8) out += to[i] || "";
+          else if (f > i * 2) out += glyphs[(Math.random() * glyphs.length) | 0];
+          else out += from[i] || "";
+        }
+        rot.textContent = out;
+        if (f++ < len * 2 + 8) requestAnimationFrame(step);
+        else rot.textContent = to;
+      };
+      step();
+    };
+    if (!reduced) setInterval(() => scramble(words[(wi = (wi + 1) % words.length)]), 2600);
+
+    const body = $("#termBody");
+    const P = '<span class="p">❯</span> ';
+    const lines = [
+      [P, "whoami"],
+      ["", '<span class="s">dhanush</span> <span class="m">// SDE · tech lead · builder</span>', true],
+      [P, "cat stack.json"],
+      ["", '{\n  <span class="k">"ai"</span>: [<span class="s">"GenAI"</span>, <span class="s">"CV"</span>, <span class="s">"agents"</span>],\n  <span class="k">"mobile"</span>: [<span class="s">"Android"</span>, <span class="s">"Flutter"</span>],\n  <span class="k">"backend"</span>: [<span class="s">"FastAPI"</span>, <span class="s">"Docker"</span>]\n}', true],
+      [P, "./ship --prod"],
+      ["", '<span class="p">✔</span> build passed <span class="m">·</span> <span class="p">✔</span> deployed <span class="m">· 1.8s</span>', true],
+      [P, ""],
+    ];
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+    if (reduced) { body.innerHTML = lines.map((l) => l[0] + l[1]).join("\n"); return; }
+    (async () => {
+      let html = "";
+      const paint = () => (body.innerHTML = html + '<span class="cur"></span>');
+      await wait(2600);
+      for (const [pre, txt, instant] of lines) {
+        html += pre; paint();
+        if (instant) { await wait(350); html += txt; paint(); }
+        else for (const c of txt) { html += c; paint(); await wait(55 + Math.random() * 60); }
+        if (txt) html += "\n";
+        await wait(300);
+      }
+      paint();
+    })();
+
+    const hero = $(".hero"), term = $("#term");
+    if (fine) hero.addEventListener("pointermove", (e) => {
+      const r = hero.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      hero.style.setProperty("--mx", x * 100 + "%");
+      hero.style.setProperty("--my", y * 100 + "%");
+      if (innerWidth > 960) term.style.transform = `rotateY(${(x - 0.5) * 18 - 4}deg) rotateX(${(0.5 - y) * 14 + 2}deg)`;
+    });
+  })();
+
   /* ---------- nav hide on scroll ---------- */
   let lastY = 0;
   addEventListener("scroll", () => {
@@ -163,7 +220,7 @@
   if (reduced) return;
 
   /* ---------- scroll animations ---------- */
-  gsap.to(".hero__title", { yPercent: -20, opacity: 0.2, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
+  gsap.to(".hero__inner", { yPercent: -12, opacity: 0.2, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
 
   /* portrait: clip reveal, parallax, cursor-follow colour lens */
   const pf = $(".portrait");

@@ -8,8 +8,8 @@
   <meta property="og:title" content="Dhanush A — AI & Full-Stack Engineer" />
   <meta property="og:description" content="Building intelligent products end to end." />
   <meta property="og:image" content="assets/me.jpg" />
-  <meta name="theme-color" content="#07070a" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%2307070a'/><text x='50' y='68' font-size='56' text-anchor='middle' fill='%23c8ff4d' font-family='Arial Black'>D</text></svg>" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23000000'/><text x='50' y='68' font-size='56' text-anchor='middle' fill='%23e6c79c' font-family='Arial Black'>D</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -41,17 +41,28 @@
 
   <main id="top">
     <section class="hero">
-      <p class="hero__eyebrow reveal-up"><span class="pulse"></span> Open to SDE roles · Mangaluru, India</p>
-      <h1 class="hero__title">
-        <span class="line"><span class="split">Dhanush A</span></span>
-        <span class="line"><em class="split serif">builds</em> <span class="split">intelligent</span></span>
-        <span class="line"><span class="split outline">products.</span></span>
-      </h1>
-      <div class="hero__bottom">
-        <p class="hero__sub reveal-up">Freelance software engineer, Tech Lead @ Nexus SIT and B.E. Computer Science &amp; Business Systems student. I ship <b>Android &amp; Flutter apps</b>, <b>FastAPI backends</b>, <b>generative AI</b> and <b>computer vision</b> — end to end.</p>
-        <div class="hero__ctas reveal-up">
-          <a href="#work" class="btn btn--primary magnetic" data-cursor="Explore"><span>See my work</span><i>↘</i></a>
-          <a href="https://www.linkedin.com/in/dhanuvagman/" target="_blank" rel="noopener" class="btn magnetic" data-cursor="LinkedIn"><span>LinkedIn</span><i>↗</i></a>
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__inner">
+        <div class="hero__left">
+          <p class="hero__eyebrow reveal-up"><span class="pulse"></span> Open to SDE roles · Mangaluru, India</p>
+          <p class="hero__hi reveal-up">Hey, I'm</p>
+          <h1 class="hero__title">
+            <span class="line"><span class="split hero__name">Dhanush A</span></span>
+          </h1>
+          <p class="hero__role reveal-up">I build <span class="hero__rotator serif" id="rotator">AI agents</span><span class="hero__caret"></span></p>
+          <p class="hero__sub reveal-up">Freelance software engineer, Tech Lead @ Nexus SIT and B.E. Computer Science &amp; Business Systems student. I ship <b>Android &amp; Flutter apps</b>, <b>FastAPI backends</b>, <b>generative AI</b> and <b>computer vision</b> — end to end.</p>
+          <div class="hero__ctas reveal-up">
+            <a href="#work" class="btn btn--primary magnetic" data-cursor="Explore"><span>See my work</span><i>↘</i></a>
+            <a href="https://www.linkedin.com/in/dhanuvagman/" target="_blank" rel="noopener" class="btn magnetic" data-cursor="LinkedIn"><span>LinkedIn</span><i>↗</i></a>
+          </div>
+        </div>
+        <div class="hero__right reveal-up">
+          <div class="term" id="term">
+            <div class="term__bar"><i></i><i></i><i></i><span>~/dhanush — zsh</span></div>
+            <pre class="term__body" id="termBody"></pre>
+          </div>
+          <div class="hero__badge hero__badge--a"><b>⚡</b> Shipping end to end</div>
+          <div class="hero__badge hero__badge--b"><b>◎</b> AI · Mobile · Backend</div>
         </div>
       </div>
       <div class="hero__scroll"><span>Scroll</span><i></i></div>
@@ -110,7 +121,7 @@
           <h2 class="big-title">Things I've <em class="serif">built</em></h2>
         </div>
         <div class="work__track">
-          <article class="card tilt" style="--c1:#e2e8f0;--c2:#7c5cff">
+          <article class="card tilt" style="--c1:#e6c79c;--c2:#8c8579">
             <div class="card__visual"><div class="orb"></div><span class="card__idx">01</span></div>
             <div class="card__body">
               <div class="card__tags"><span>Robotics</span><span>LangChain</span><span>Generative AI</span></div>
@@ -119,7 +130,7 @@
               <div class="card__links"><a href="https://www.linkedin.com/in/dhanuvagman/details/projects/" target="_blank" rel="noopener" data-cursor="Read">Details ↗</a></div>
             </div>
           </article>
-          <article class="card tilt" style="--c1:#c8ff4d;--c2:#2dd4bf">
+          <article class="card tilt" style="--c1:#d9b38c;--c2:#6b5f52">
             <div class="card__visual"><div class="orb"></div><span class="card__idx">02</span></div>
             <div class="card__body">
               <div class="card__tags"><span>Flutter</span><span>Node.js</span><span>Prometheus</span><span>Grafana</span></div>
@@ -128,7 +139,7 @@
               <div class="card__links"><a href="https://github.com/dhanuvagman006/myassistant-flutter" target="_blank" rel="noopener" data-cursor="Code">App ↗</a><a href="https://github.com/dhanuvagman006/myassistant-backend" target="_blank" rel="noopener" data-cursor="Code">Backend ↗</a><a href="https://github.com/dhanuvagman006/MYASSISTANT_MONITORING" target="_blank" rel="noopener" data-cursor="Code">Monitoring ↗</a></div>
             </div>
           </article>
-          <article class="card tilt" style="--c1:#ff5ca8;--c2:#8b5cf6">
+          <article class="card tilt" style="--c1:#c9b79c;--c2:#5e584f">
             <div class="card__visual"><div class="orb"></div><span class="card__idx">03</span></div>
             <div class="card__body">
               <div class="card__tags"><span>Python</span><span>Voice cloning</span><span>Lip-sync</span></div>
@@ -137,7 +148,7 @@
               <div class="card__links"><a href="https://github.com/dhanuvagman006/VedioAvatar" target="_blank" rel="noopener" data-cursor="Code">Code ↗</a><a href="https://github.com/dhanuvagman006/VedioFaceClone" target="_blank" rel="noopener" data-cursor="Code">FaceClone ↗</a></div>
             </div>
           </article>
-          <article class="card tilt" style="--c1:#38bdf8;--c2:#6366f1">
+          <article class="card tilt" style="--c1:#b8a48a;--c2:#4f4a43">
             <div class="card__visual"><div class="orb"></div><span class="card__idx">04</span></div>
             <div class="card__body">
               <div class="card__tags"><span>Computer Vision</span><span>WebSocket</span><span>Python</span></div>
@@ -146,7 +157,7 @@
               <div class="card__links"><a href="https://github.com/dhanuvagman006/AI-security-camera" target="_blank" rel="noopener" data-cursor="Code">Code ↗</a></div>
             </div>
           </article>
-          <article class="card tilt" style="--c1:#fbbf24;--c2:#f97316">
+          <article class="card tilt" style="--c1:#e0cdb3;--c2:#7a6e60">
             <div class="card__visual"><div class="orb"></div><span class="card__idx">05</span></div>
             <div class="card__body">
               <div class="card__tags"><span>LLMs</span><span>Agents</span><span>Linux</span></div>
@@ -155,7 +166,7 @@
               <div class="card__links"><a href="https://github.com/dhanuvagman006/Ubuntu-Agent" target="_blank" rel="noopener" data-cursor="Code">Agent ↗</a><a href="https://github.com/dhanuvagman006/TerminalAI" target="_blank" rel="noopener" data-cursor="Code">TerminalAI ↗</a></div>
             </div>
           </article>
-          <article class="card tilt" style="--c1:#4ade80;--c2:#14b8a6">
+          <article class="card tilt" style="--c1:#cdb08a;--c2:#5a5047">
             <div class="card__visual"><div class="orb"></div><span class="card__idx">06</span></div>
             <div class="card__body">
               <div class="card__tags"><span>Machine Learning</span><span>Web</span></div>
@@ -164,7 +175,7 @@
               <div class="card__links"><a href="https://fuel-ml-gn9x.vercel.app" target="_blank" rel="noopener" data-cursor="Live">Live ↗</a><a href="https://github.com/dhanuvagman006/FuelML" target="_blank" rel="noopener" data-cursor="Code">Code ↗</a></div>
             </div>
           </article>
-          <article class="card tilt" style="--c1:#f472b6;--c2:#fb7185">
+          <article class="card tilt" style="--c1:#d6c3a5;--c2:#6e6558">
             <div class="card__visual"><div class="orb"></div><span class="card__idx">07</span></div>
             <div class="card__body">
               <div class="card__tags"><span>React</span><span>Vercel</span></div>
@@ -173,7 +184,7 @@
               <div class="card__links"><a href="https://easyrabbitsolutions.vercel.app" target="_blank" rel="noopener" data-cursor="Live">Solutions ↗</a><a href="https://easy-rabbit-fashion.vercel.app" target="_blank" rel="noopener" data-cursor="Live">Fashion ↗</a></div>
             </div>
           </article>
-          <article class="card tilt" style="--c1:#a78bfa;--c2:#22d3ee">
+          <article class="card tilt" style="--c1:#c2b39d;--c2:#55504a">
             <div class="card__visual"><div class="orb"></div><span class="card__idx">08</span></div>
             <div class="card__body">
               <div class="card__tags"><span>JavaScript</span><span>Fintech</span></div>
