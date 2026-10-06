@@ -149,6 +149,17 @@
     .to(".loader", { clipPath: "inset(0 0 100% 0)", duration: reduced ? 0.1 : 1, ease: "expo.inOut" })
     .add(() => { document.body.classList.remove("loading"); $(".loader").remove(); intro.play(); }, "-=0.35");
 
+  /* moments lightbox */
+  const lb = $(".lightbox");
+  const closeLb = () => { lb.classList.remove("open"); lb.setAttribute("aria-hidden", "true"); lenis && lenis.start(); };
+  $$(".moment").forEach((m) => m.addEventListener("click", () => {
+    $("img", lb).src = m.dataset.src;
+    $("p", lb).textContent = $("figcaption", m).innerText.replace(/\n+/g, " · ");
+    lb.classList.add("open"); lb.setAttribute("aria-hidden", "false"); lenis && lenis.stop();
+  }));
+  lb.addEventListener("click", closeLb);
+  addEventListener("keydown", (e) => e.key === "Escape" && closeLb());
+
   if (reduced) return;
 
   /* ---------- scroll animations ---------- */
@@ -182,6 +193,8 @@
   );
 
   $$(".tl").forEach((el) => gsap.from(el, { y: 70, opacity: 0, duration: 1, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 88%" } }));
+  gsap.from(".moment", { y: 80, opacity: 0, scale: 0.94, duration: 1.1, ease: "expo.out", stagger: 0.07, scrollTrigger: { trigger: ".moments__grid", start: "top 80%" } });
+  $$(".moment__img").forEach((el) => gsap.fromTo(el, { yPercent: -6 }, { yPercent: 6, ease: "none", scrollTrigger: { trigger: el.parentElement, start: "top bottom", end: "bottom top", scrub: true } }));
   gsap.from(".bento__item", { y: 80, opacity: 0, duration: 1, ease: "expo.out", stagger: 0.08, scrollTrigger: { trigger: ".bento", start: "top 80%" } });
 
   gsap.from(".contact__title .ch", { yPercent: 100, opacity: 0, duration: 1, ease: "expo.out", stagger: 0.02, scrollTrigger: { trigger: ".contact__title", start: "top 80%" } });
