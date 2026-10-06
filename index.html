@@ -7,7 +7,7 @@
   <meta name="description" content="Dhanush A — AI engineer and full-stack developer building intelligent products: generative AI, computer vision, agents, Flutter and the web." />
   <meta property="og:title" content="Dhanush A — AI & Full-Stack Engineer" />
   <meta property="og:description" content="Building intelligent products end to end." />
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/164708105?v=4" />
+  <meta property="og:image" content="assets/me.jpg" />
   <meta name="theme-color" content="#07070a" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%2307070a'/><text x='50' y='68' font-size='56' text-anchor='middle' fill='%23c8ff4d' font-family='Arial Black'>D</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -65,7 +65,23 @@
 
     <section class="about" id="about">
       <div class="section-label">01 — About</div>
-      <p class="about__text scrub-text">I'm a developer who loves the messy middle between an idea and a product. I've shipped client apps with zero critical post-release defects, led an 8-member team building LUNA, a semi-humanoid robot, and mentored 50+ students in AI and Python. From lip-synced AI avatars to cameras that detect people in crisis — I design, code and ship the whole thing.</p>
+      <div class="about__grid">
+        <figure class="portrait" data-cursor="Hi!">
+          <div class="portrait__frame">
+            <img class="portrait__base" src="assets/me.jpg" alt="Dhanush A" width="640" height="800" loading="lazy" />
+            <img class="portrait__reveal" src="assets/me.jpg" alt="" aria-hidden="true" width="640" height="800" loading="lazy" />
+            <div class="portrait__scan" aria-hidden="true"></div>
+          </div>
+          <svg class="portrait__badge" viewBox="0 0 200 200" aria-hidden="true">
+            <defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" /></defs>
+            <text><textPath href="#circ">DHANUSH A • SOFTWARE ENGINEER • AI BUILDER • </textPath></text>
+          </svg>
+          <span class="portrait__star" aria-hidden="true">✦</span>
+          <figcaption class="portrait__chip"><span class="pulse"></span> Tech Lead @ Nexus SIT</figcaption>
+          <div class="portrait__chip portrait__chip--b">📍 Mangaluru, IN</div>
+        </figure>
+        <p class="about__text scrub-text">I'm a developer who loves the messy middle between an idea and a product. I've shipped client apps with zero critical post-release defects, led an 8-member team building LUNA, a semi-humanoid robot, and mentored 50+ students in AI and Python. From lip-synced AI avatars to cameras that detect people in crisis — I design, code and ship the whole thing.</p>
+      </div>
       <div class="stats">
         <div class="stat"><div class="stat__num" data-count="70">0</div><div class="stat__label">Public repositories</div></div>
         <div class="stat"><div class="stat__num" data-count="3">0</div><div class="stat__label">Client apps shipped</div></div>

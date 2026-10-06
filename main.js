@@ -154,6 +154,19 @@
   /* ---------- scroll animations ---------- */
   gsap.to(".hero__title", { yPercent: -20, opacity: 0.2, ease: "none", scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true } });
 
+  /* portrait: clip reveal, parallax, cursor-follow colour lens */
+  const pf = $(".portrait");
+  if (pf) {
+    gsap.from(".portrait__frame", { clipPath: "inset(100% 0 0 0 round 200px 200px 28px 28px)", duration: 1.6, ease: "expo.inOut", scrollTrigger: { trigger: pf, start: "top 80%" } });
+    gsap.from(".portrait__frame img", { scale: 1.4, duration: 2, ease: "expo.out", scrollTrigger: { trigger: pf, start: "top 80%" } });
+    gsap.from(".portrait__badge, .portrait__star, .portrait__chip", { scale: 0, opacity: 0, duration: 1, ease: "back.out(2)", stagger: 0.12, delay: 0.8, scrollTrigger: { trigger: pf, start: "top 80%" } });
+    gsap.to(".portrait__frame img", { yPercent: 6, ease: "none", scrollTrigger: { trigger: pf, start: "top bottom", end: "bottom top", scrub: true } });
+    pf.addEventListener("mousemove", (e) => {
+      const r = pf.getBoundingClientRect();
+      pf.style.setProperty("--px", `${e.clientX - r.left}px`);
+      pf.style.setProperty("--py", `${e.clientY - r.top + r.height * 0.06}px`);
+    });
+  }
   gsap.to(".scrub-text .w", {
     opacity: 1, stagger: 0.1, ease: "none",
     scrollTrigger: { trigger: ".about__text", start: "top 80%", end: "bottom 45%", scrub: true },
