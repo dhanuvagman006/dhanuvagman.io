@@ -168,6 +168,7 @@
     gsap.from(el, { y: 60, opacity: 0, duration: 1.1, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 88%" } })
   );
 
+  $$(".tl").forEach((el) => gsap.from(el, { y: 70, opacity: 0, duration: 1, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 88%" } }));
   gsap.from(".bento__item", { y: 80, opacity: 0, duration: 1, ease: "expo.out", stagger: 0.08, scrollTrigger: { trigger: ".bento", start: "top 80%" } });
 
   gsap.from(".contact__title .ch", { yPercent: 100, opacity: 0, duration: 1, ease: "expo.out", stagger: 0.02, scrollTrigger: { trigger: ".contact__title", start: "top 80%" } });
